@@ -20,3 +20,11 @@ test('Não deve realizar o link para extrato', () => {
     expect(linkExtract).not.toBeInTheDocument() 
     //verifica se algo realmente não existe
 })
+
+
+test('Deve renderizar uma lista de links com a classe link', () => {
+render(<Menu />)
+const links = screen.getAllByRole('link')
+links.forEach((links) => (expect(links).toHaveClass('link')))
+//verifica se as classes estão renderizando os css predefinidos
+})
