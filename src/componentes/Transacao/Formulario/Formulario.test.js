@@ -10,14 +10,14 @@ describe('Deve renderizar um campo de input', () => {
     /* testando campo input */
   });
 
-  test(' com o type number', () => {
+  test('com o type number', () => {
     render(<Formulario />);
     const fieldText = screen.getByPlaceholderText('Digite um valor');
     expect(fieldText).toHaveAttribute('type', 'number');
     /* testando se o campo do input é do tipo número */
   });
 
-  test(' que pode ser preenchido', () => {
+  test('que pode ser preenchido', () => {
     render(<Formulario />);
     const fieldText = screen.getByPlaceholderText('Digite um valor');
     userEvent.type(fieldText, '50');
@@ -27,10 +27,10 @@ describe('Deve renderizar um campo de input', () => {
 });
 
 test('Deve chamar um evento de onSubmit ao clicar em realizar transação', () => {
-    const realizarTransacao = jest.fn(); //utilizado para mocar a função ja que ela não está sendo executada nesse ambiente
-    render(<Formulario realizarTransacao={realizarTransacao} />);
-    const button = screen.getByRole('button');
-    userEvent.click(button);
-    expect(realizarTransacao).toHaveBeenCalledTimes(1)
-    /* testando se o evento de submit foi chamado pelo menos uma vez*/
-  });
+  const realizarTransacao = jest.fn(); //utilizado para mocar a função ja que ela não está sendo executada nesse ambiente
+  render(<Formulario realizarTransacao={realizarTransacao} />);
+  const button = screen.getByRole('button');
+  userEvent.click(button);
+  expect(realizarTransacao).toHaveBeenCalledTimes(1);
+  /* testando se o evento de submit foi chamado pelo menos uma vez*/
+});
